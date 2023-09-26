@@ -69,7 +69,77 @@ else:
 
 # 6 - Numero inteiro positivo do usuario + fatorial
 
+def fatorial(numero):
+    resultado = 1
+    for i in range(1, numero + 1):
+        resultado *= i
+    return resultado
+
+fatorialCalculado = fatorial(3)
+print(fatorialCalculado)
 
 
 # 7 - Sequencia de Fibonacci
 
+def sequencia_fibonacci(n):
+    sequencia = [0, 1]
+    for i in range(2, n + 1):
+        proximo_numero = sequencia[i - 1] + sequencia[i - 2]
+        
+        if proximo_numero <= n:
+            sequencia.append(proximo_numero)
+        else:
+            break
+    return sequencia
+
+valor_maximo = int(input("Digite o valor máximo para a sequência de Fibonacci: "))
+sequencia_fib = sequencia_fibonacci(valor_maximo)
+print("Sequência de Fibonacci até", valor_maximo, ":", sequencia_fib)
+
+# 8. Primo ou nao
+
+numero = int(input("Digite um número: "))
+
+def teste(numero):
+    contador = 0
+    for i in range(1, numero + 1):
+        if numero % i == 0:
+            contador += 1
+        
+    if contador == 2:
+        return 'primo'
+    else:
+        return 'nao'
+
+resultado = teste(numero)
+print(resultado)
+
+# 9. Nome e leia a letra A
+
+lista_nomes = ["Arthur", "Neymar", "Teste", "Alguma coisa", "aaqeq", "dajksdad"]
+
+nomes_com_a = list(filter(lambda nome: nome.lower().startswith('a'), lista_nomes))
+
+print("Nomes que começam com 'A':")
+for nome in nomes_com_a:
+    print(nome)
+
+# 10. Pedra, papel, tesoura.
+
+import random
+
+opcoes = ["Pedra", "Papel", "Tesoura"]
+
+escolha_usuario = input("Escolha Pedra, Papel ou Tesoura: ").capitalize()
+escolha_computador = random.choice(opcoes)
+
+print(f"Computador escolheu: {escolha_computador}")
+
+if (escolha_usuario, escolha_computador) in [("Pedra", "Tesoura"), ("Tesoura", "Papel"), ("Papel", "Pedra")]:
+    resultado = "Usuário venceu!"
+elif escolha_usuario == escolha_computador:
+    resultado = "Empate!"
+else:
+    resultado = "Computador venceu!"
+
+print(resultado)
